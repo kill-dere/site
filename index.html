@@ -1,271 +1,284 @@
-    <!DOCTYPE html>
-    <html lang="pt-br">
-    <head>
-    <meta charset="UTF-8">
-    <title>Para Minha Jovem Senhora 💖</title>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Minha Jovem Senhora 💖</title>
 
-    <style>
+<style>
 
-    body{
-        margin:0;
-        padding:0;
-        font-family:'Segoe UI', sans-serif;
-        background: linear-gradient(135deg,#ff9ec4,#ffc8dd,#cdb4db);
-        min-height:100vh;
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        overflow-x:hidden;
-    }
-
-    /* tela inicial */
-
-    .container{
-        text-align:center;
-        background:white;
-        padding:40px;
-        border-radius:20px;
-        box-shadow:0 10px 30px rgba(0,0,0,0.2);
-        max-width:500px;
-    }
-
-    .frase-final{
-    margin-top:25px;
-    padding:20px;
-    border-radius:15px;
-    background:linear-gradient(135deg,#ffe3ec,#ffd6e0);
-    color:#d6336c;
-    font-size:20px;
-    font-style:italic;
-    box-shadow:0 8px 20px rgba(0,0,0,0.15);
-    display:none;
-    animation: aparecer 1s ease;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
-    /* área das caixas */
+body{
+font-family:'Segoe UI',sans-serif;
+background:linear-gradient(135deg,#ff9ec4,#ffc8dd,#cdb4db);
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow-x:hidden;
+}
 
-    #conteudo{
-        display:none;
-        flex-direction:column;
-        gap:30px;
-        align-items:center;
-    }
+/* brilho romantico */
 
-    /* caixas */
+body::before{
+content:"";
+position:fixed;
+width:100%;
+height:100%;
+background:radial-gradient(circle,#ffffff55 1px,transparent 1px);
+background-size:30px 30px;
+animation: brilho 20s linear infinite;
+pointer-events:none;
+}
 
-    .caixa{
-        background:white;
-        padding:30px;
-        border-radius:20px;
-        box-shadow:0 10px 30px rgba(0,0,0,0.2);
-        max-width:500px;
-        animation: aparecer 1s ease;
-    }
+@keyframes brilho{
+from{transform:translateY(0)}
+to{transform:translateY(-100px)}
+}
 
-    /* animação */
+/* containers */
 
-    @keyframes aparecer{
-        from{
-            opacity:0;
-            transform:translateY(30px);
-        }
-        to{
-            opacity:1;
-            transform:translateY(0);
-        }
-    }
+.container{
+width:90%;
+max-width:420px;
+background:white;
+padding:35px;
+border-radius:25px;
+box-shadow:0 10px 35px rgba(0,0,0,0.25);
+text-align:center;
+animation:aparecer 1s ease;
+}
 
-    /* texto */
+#conteudo{
+display:none;
+flex-direction:column;
+gap:25px;
+align-items:center;
+}
 
-    h1{
-        color:#ff4d88;
-    }
+/* caixas */
 
-    p{
-        font-size:18px;
-    }
+.caixa{
+width:90%;
+max-width:420px;
+background:white;
+padding:30px;
+border-radius:25px;
+box-shadow:0 10px 35px rgba(0,0,0,0.25);
+text-align:center;
+animation:aparecer 1s ease;
+}
 
-    /* botão */
+@keyframes aparecer{
+from{opacity:0;transform:translateY(40px)}
+to{opacity:1;transform:translateY(0)}
+}
 
-    button{
-        padding:12px 25px;
-        border:none;
-        background:#ff4d88;
-        color:white;
-        font-size:16px;
-        border-radius:10px;
-        cursor:pointer;
-        transition:0.3s;
-    }
+h1{
+color:#ff2e6f;
+margin-bottom:10px;
+}
 
-    button:hover{
-        background:#ff2e6f;
-    }
+p{
+font-size:18px;
+margin:10px 0;
+line-height:1.5;
+}
 
-    /* contador */
+/* botões */
 
-    #contador{
-        color:#ff2e6f;
-        font-weight:bold;
-    }
+button{
+padding:12px 25px;
+border:none;
+background:#ff4d88;
+color:white;
+font-size:16px;
+border-radius:12px;
+cursor:pointer;
+transition:.3s;
+margin:5px;
+}
 
-    /* corações */
+button:hover{
+transform:scale(1.05);
+background:#ff2e6f;
+}
 
-    .coracao{
-        position:absolute;
-        color:#ff4d88;
-        font-size:20px;
-        animation: subir 6s linear infinite;
-    }
+/* contador */
 
-    #surpresa{
-        margin-top:20px;
-        font-size:20px;
-        color:#ff2e6f;
-        display:none;
-    }
+#contador{
+font-size:22px;
+font-weight:bold;
+color:#ff2e6f;
+margin:15px 0;
+}
 
-    @keyframes subir{
-        from{
-            transform:translateY(100vh);
-            opacity:1;
-        }
-        to{
-            transform:translateY(-10vh);
-            opacity:0;
-        }
-    }
+/* carta */
 
-    /* flores */
+#carta{
+display:none;
+animation:abrirCarta 1s ease;
+}
 
-    .flower{
-        position:absolute;
-        font-size:22px;
-        animation:cair 7s linear infinite;
-    }
+@keyframes abrirCarta{
+from{transform:scale(.7);opacity:0}
+to{transform:scale(1);opacity:1}
+}
 
-    @keyframes cair{
-        from{
-            transform:translateY(-10vh) rotate(0deg);
-            opacity:1;
-        }
-        to{
-            transform:translateY(110vh) rotate(360deg);
-            opacity:0;
-        }
-    }
+/* frase final */
 
-    </style>
-    </head>
+.frase-final{
+margin-top:20px;
+padding:20px;
+border-radius:15px;
+background:linear-gradient(135deg,#ffe3ec,#ffd6e0);
+color:#d6336c;
+font-size:20px;
+display:none;
+}
 
-    <body>
+/* corações */
 
-    <!-- TELA INICIAL -->
+.coracao{
+position:absolute;
+font-size:22px;
+animation:subir 6s linear infinite;
+}
 
-    <div id="inicio" class="container">
+@keyframes subir{
+from{transform:translateY(100vh);opacity:1}
+to{transform:translateY(-10vh);opacity:0}
+}
 
-    <h1>Para minha Jovem Senhora 💖</h1>
+/* flores */
 
-    <p>
-    Hoje faz <b>1 mês</b> desde o nosso primeiro beijo.
-    </p>
+.flower{
+position:absolute;
+font-size:22px;
+animation:cair 7s linear infinite;
+}
 
-    <p>
-    E eu ainda estou tentando entender  
-    como alguém pode deixar minha vida  
-    tão mais bonita assim.
-    </p>
+@keyframes cair{
+from{transform:translateY(-10vh) rotate(0deg)}
+to{transform:translateY(110vh) rotate(360deg)}
+}
 
-    <button onclick="mostrarMensagem()">
-    Clique aqui
-    </button>
+</style>
+</head>
 
-    </div>
+<body>
 
-    <!-- CONTEÚDO -->
+<!-- TELA INICIAL -->
 
-    <div id="conteudo">
+<div id="inicio" class="container">
 
-    <!-- CAIXA 1 -->
+<h1>Para minha Jovem Senhora 💖</h1>
 
-    <div class="caixa">
+<p>
+Hoje faz <b>1 mês</b> desde o nosso primeiro beijo.
+</p>
 
-    <h1>Um pequeno jardim para você 🌸</h1>
+<p>
+E eu ainda estou tentando entender  
+como alguém conseguiu  
+deixar minha vida tão mais bonita.
+</p>
 
-    <p>
-    Eu queria poder te entregar flores hoje.
-    </p>
+<button onclick="mostrarMensagem()">
+Clique aqui
+</button>
 
-    <p>
-    Mas como não vou conseguir te ver,
-    resolvi te dar um pequeno jardim digital.
-    </p>
+</div>
 
-    <p>
-    Cada flor que cair aqui é um lembrete
-    de como você deixa meus dias mais bonitos.
-    </p>
+<!-- CONTEUDO -->
 
-    </div>
+<div id="conteudo">
 
-    <!-- CAIXA 2 -->
+<!-- CAIXA FLORES -->
 
-    <div class="caixa">
+<div class="caixa">
 
-    <h1>Desde aquele beijo 💖</h1>
+<h1>Um pequeno jardim 🌸</h1>
 
-    <p id="contador"></p>
+<p>
+Eu queria poder te entregar flores hoje.
+</p>
 
-    <p>Agora uma pergunta importante...</p>
+<p>
+Mas como não vou conseguir te ver,
+resolvi te dar um pequeno jardim digital.
+</p>
 
-    <p><b>Você me ama?</b></p>
+<p>
+Cada flor que cair aqui é um lembrete  
+de como você deixa meus dias mais bonitos.
+</p>
 
-    <button onclick="resposta()">Sim ❤️</button>
-    <button id="nao">Não</button>
+</div>
 
-    <p id="resposta"></p>
+<!-- CAIXA PERGUNTA -->
 
-    </div>
+<div class="caixa" id="caixaPergunta">
 
-    <!-- CARTA -->
+<h1>Desde aquele beijo 💖</h1>
 
-    <div class="caixa" id="carta" style="display:none">
+<div id="contador"></div>
 
-    <h1> Feliz 1 mês 💌</h1>
+<p>Agora uma pergunta importante...</p>
 
-    <p>
-    As coisas aconteceram bem do nada ne.
-    Tudo tão do nada, e ao mesmo tempo tão intenso.
-    </p>
+<p><b>Você me ama?</b></p>
 
-    <p>
-    Cada dia que passa eu percebo mais e mais motivos para gostar de você.
-    </p>
+<button onclick="resposta()">Sim ❤️</button>
+<button id="nao">Não</button>
 
-    <p>
-    E esse sentimento que tenho por ti so cresce, e me surpreende a cada dia.
-    </p>
+<p id="resposta"></p>
 
-    <p>
-    Talvez esse site seja simples e meio corrido porque ta em cima da hora kkkkk,
-    mas ele foi feito pensando em você.
-    </p>
+</div>
 
-    <p>
-    E eu espero que ele consiga mostrar
-    um pouquinho do quanto você é especial para mim.
-    </p>
+<!-- CARTA -->
 
-    <p>
-    Você é uma jovem senhora que entrou para somar na minha vida.
-    Desejo de coração que eu, você e o Theo possamos compartilhar muitos momentos felizes e inesquecíveis juntos.
-    </p>
+<div class="caixa" id="carta">
 
-    <p>
-    Com carinho,
-    <b>de um jovem senhor que gosta muito de você.</b>
+<h1>Feliz 1 mês 💌</h1>
 
-    <br><br>
+<p>
+As coisas aconteceram bem do nada né.
+</p>
+
+<p>
+E ao mesmo tempo tudo ficou  
+tão intenso e tão bonito.
+</p>
+
+<p>
+Cada dia que passa eu descubro  
+mais motivos para gostar de você.
+</p>
+
+<p>
+Talvez esse site seja simples.
+Mas ele foi feito pensando em você.
+</p>
+
+<p>
+Você é uma jovem senhora  
+que entrou para somar na minha vida.
+</p>
+
+<p>
+E eu espero que a gente possa  
+compartilhar muitos momentos felizes juntos.
+</p>
+
+<p>
+Com carinho,<br>
+<b>de um jovem senhor que gosta muito de você.</b>
+</p>
 
 <button onclick="mostrarFrase()">
 Uma última coisa...
@@ -278,124 +291,150 @@ Perdi as chaves, mas que cabeça a minha...
 <b>Agora vai ter que ser para toda a vida.</b>
 
 </div>
-    </p>
 
-    </div>
+</div>
 
-    </div>
+</div>
 
-    <script>
+<script>
 
-    /* trocar tela */
+/* trocar tela */
 
-    function mostrarMensagem(){
+function mostrarMensagem(){
+document.getElementById("inicio").style.display="none"
+document.getElementById("conteudo").style.display="flex"
+}
 
-    document.getElementById("inicio").style.display="none";
-    document.getElementById("conteudo").style.display="flex";
+/* contador */
 
-    }
+const dataBeijo=new Date("2026-02-15 20:00:00")
 
-    /* contador */
+function atualizarTempo(){
 
-    const dataBeijo = new Date("2026-02-15 20:00:00");
+const agora=new Date()
 
-    function atualizarTempo(){
+const diferenca=agora-dataBeijo
 
-    const agora = new Date();
+const dias=Math.floor(diferenca/(1000*60*60*24))
+const horas=Math.floor(diferenca/(1000*60*60)%24)
+const minutos=Math.floor(diferenca/(1000*60)%60)
 
-    const diferenca = agora - dataBeijo;
+document.getElementById("contador").innerHTML=
 
-    const dias = Math.floor(diferenca/(1000*60*60*24));
-    const horas = Math.floor(diferenca/(1000*60*60));
-    const minutos = Math.floor(diferenca/(1000*60));
-
-    document.getElementById("contador").innerHTML =
-    dias+" dias<br>"+
-    horas+" horas<br>"+
-    minutos+" minutos";
-
-    }
-
-    setInterval(atualizarTempo,1000);
-    atualizarTempo();
-
-    /* botão que foge */
-
-    const nao = document.getElementById("nao");
-
-    nao.addEventListener("mouseover",()=>{
-
-    nao.style.position="absolute";
-    nao.style.left=Math.random()*80+"%";
-    nao.style.top=Math.random()*80+"%";
-
-    })
-
-    /* resposta */
-
-    function resposta(){
-
-    document.getElementById("resposta").innerHTML =
-    "Eu sabia 💖";
-
-    document.getElementById("carta").style.display="block";
-
-    }
-
-    /* corações */
-
-    function criarCoracao(){
-
-    const coracao=document.createElement("div");
-
-    coracao.classList.add("coracao");
-
-    coracao.innerHTML="💖";
-
-    coracao.style.left=Math.random()*100+"vw";
-
-    document.body.appendChild(coracao);
-
-    setTimeout(()=>{
-    coracao.remove();
-    },6000)
-
-    }
-
-    setInterval(criarCoracao,400);
-
-    /* flores caindo */
-
-    function criarFlor(){
-
-    const flores=["🌸","🌹","🌷","🌺"];
-
-    const flor=document.createElement("div");
-
-    flor.classList.add("flower");
-
-    flor.innerHTML=flores[Math.floor(Math.random()*flores.length)];
-
-    flor.style.left=Math.random()*100+"vw";
-    flor.style.fontSize=(Math.random()*25+15)+"px";
-
-    document.body.appendChild(flor);
-
-    setTimeout(()=>{
-    flor.remove();
-    },7000)
-
-    }
-
-    setInterval(criarFlor,400);
-
-function mostrarFrase(){
-
-document.getElementById("fraseFinal").style.display="block";
+dias+" dias ❤️<br>"+
+horas+" horas ❤️<br>"+
+minutos+" minutos"
 
 }
 
-    </script>
+setInterval(atualizarTempo,1000)
+atualizarTempo()
 
-    </body>
-    </html>
+/* botão fugir dentro da caixa */
+
+const nao=document.getElementById("nao")
+const caixa=document.getElementById("caixaPergunta")
+
+nao.addEventListener("mouseover",()=>{
+
+const largura=caixa.clientWidth-80
+const altura=caixa.clientHeight-40
+
+nao.style.position="absolute"
+nao.style.left=Math.random()*largura+"px"
+nao.style.top=Math.random()*altura+"px"
+
+})
+
+/* resposta */
+
+function resposta(){
+
+document.getElementById("resposta").innerHTML="Eu sabia 💖"
+
+document.getElementById("carta").style.display="block"
+
+explosaoFlores()
+
+}
+
+/* explosão */
+
+function explosaoFlores(){
+
+for(let i=0;i<40;i++){
+
+setTimeout(()=>{
+
+const flor=document.createElement("div")
+
+flor.innerHTML="🌸"
+
+flor.style.position="absolute"
+flor.style.left=Math.random()*100+"vw"
+flor.style.top=Math.random()*100+"vh"
+flor.style.fontSize="30px"
+
+document.body.appendChild(flor)
+
+setTimeout(()=>{
+flor.remove()
+},3000)
+
+},i*50)
+
+}
+
+}
+
+/* corações */
+
+function criarCoracao(){
+
+const coracao=document.createElement("div")
+
+coracao.classList.add("coracao")
+coracao.innerHTML="💖"
+coracao.style.left=Math.random()*100+"vw"
+
+document.body.appendChild(coracao)
+
+setTimeout(()=>{
+coracao.remove()
+},6000)
+
+}
+
+setInterval(criarCoracao,500)
+
+/* flores */
+
+function criarFlor(){
+
+const flores=["🌸","🌹","🌷","🌺"]
+
+const flor=document.createElement("div")
+
+flor.classList.add("flower")
+flor.innerHTML=flores[Math.floor(Math.random()*flores.length)]
+
+flor.style.left=Math.random()*100+"vw"
+
+document.body.appendChild(flor)
+
+setTimeout(()=>{
+flor.remove()
+},7000)
+
+}
+
+setInterval(criarFlor,600)
+
+function mostrarFrase(){
+document.getElementById("fraseFinal").style.display="block"
+}
+
+</script>
+
+</body>
+</html>
